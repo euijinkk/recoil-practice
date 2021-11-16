@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { useRecoilState, useRecoilValue, useResetRecoilState } from "recoil";
+import { countAtom } from "./state";
+import Counter from "./Counter";
+import Operator from "./Operator";
 
 function App() {
+  const count = useRecoilValue(countAtom);
+  const resetCount = useResetRecoilState(countAtom);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Counter />
+      <div>{count}</div>
+      <Operator />
+      <button onClick={() => resetCount()}>reset</button>
     </div>
   );
 }
