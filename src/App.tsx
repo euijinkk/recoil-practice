@@ -1,6 +1,4 @@
-import logo from "./logo.svg";
-import "./App.css";
-import { useRecoilState, useRecoilValue, useResetRecoilState } from "recoil";
+import { useRecoilValue, useResetRecoilState } from "recoil";
 import { countAtom } from "./state";
 import Counter from "./Counter";
 import Operator from "./Operator";
